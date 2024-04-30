@@ -69,6 +69,7 @@ def run():
     button = st.button('Prever valor')
 
     if button:
+        st.write("Isso pode demorar um pouco, por favor aguarde.")
         dic_xlists.update(x_number)
         dic_xlists.update(x_tf)
         values_df = pd.DataFrame(dic_xlists, index=[0])
