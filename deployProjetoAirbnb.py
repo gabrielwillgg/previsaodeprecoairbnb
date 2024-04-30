@@ -6,7 +6,6 @@ from streamlit.logger import get_logger
 
 LOGGER = get_logger(__name__)
 
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 def run():
     st.set_page_config(
         page_title="Previsão de Preços",
