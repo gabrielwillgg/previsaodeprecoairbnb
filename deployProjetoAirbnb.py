@@ -1,10 +1,7 @@
-
+@st.cache_resource
 import pandas as pd
 import streamlit as st
 import joblib as jb
-
-@st.cache_resource
-
 
 def run():
     st.set_page_config(
