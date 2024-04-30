@@ -2,6 +2,10 @@ import pandas as pd
 import streamlit as st
 import joblib as jb
 
+@st.cache
+def load_model():
+    return jb.load('model.joblib')
+
 def run():
     st.set_page_config(
         page_title="Previsão de Preços",
@@ -79,13 +83,10 @@ def run():
         'room_type_Shared room','bed_type_Others', 'bed_type_Real Bed',
         'cancellation_policy_flexible', 'cancellation_policy_moderate',
         'cancellation_policy_strict', 'cancellation_policy_strict_14_with_grace_period'])
-
+        model = load_model()
+        price = model.predict(values_df)
         price = load_model()
         st.write(f"O valor justo para a diária de sua acomodação é de: R${price[0]}")
-@st.cache_data
-def load_model():
-    model = jb.load('model.joblib')
-    price = model.predict(values_df)
-    return price
+
 if __name__ == "__main__":
     run()
