@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import joblib as jb
 
-@st.cache
+@st.cache_resource
 def load_model():
     return jb.load('model.joblib')
 
