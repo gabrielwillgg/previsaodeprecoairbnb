@@ -82,7 +82,7 @@ def run():
 
         price = load_model()
         st.write(f"O valor justo para a diária de sua acomodação é de: R${price[0]}")
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_model():
     model = jb.load('model.joblib')
     price = model.predict(values_df)
