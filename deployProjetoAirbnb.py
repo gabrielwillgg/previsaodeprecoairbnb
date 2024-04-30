@@ -85,7 +85,6 @@ def run():
         'cancellation_policy_strict', 'cancellation_policy_strict_14_with_grace_period'])
         model = load_model()
         price = model.predict(values_df)
-        price = load_model()
         st.write(f"O valor justo para a diária de sua acomodação é de: R${price[0]}")
 
 if __name__ == "__main__":
