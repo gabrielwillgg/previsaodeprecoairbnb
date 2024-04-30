@@ -1,7 +1,6 @@
 import pandas as pd
 import streamlit as st
 import joblib as jb
-import locale
 
 from streamlit.logger import get_logger
 
@@ -88,7 +87,7 @@ def run():
         model = jb.load('model.joblib')
         price = model.predict(values_df)
 
-        st.write(f"O valor justo para a diária de sua acomodação é de: {locale.currency(price[0], grouping=True, symbol=True)}")
+        st.write(f"O valor justo para a diária de sua acomodação é de: R${price[0]}")
 
 if __name__ == "__main__":
     run()
