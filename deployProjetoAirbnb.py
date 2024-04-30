@@ -1,4 +1,3 @@
-@st.cache_resource
 import pandas as pd
 import streamlit as st
 import joblib as jb
@@ -61,7 +60,7 @@ def run():
         dic_xlists[f'{item}_{value}'] = 1
 
     button = st.button('Prever valor')
-
+    @st.cache_resource
     if button:
         st.write("Isso pode demorar um pouco, por favor aguarde.")
         dic_xlists.update(x_number)
