@@ -60,7 +60,7 @@ def run():
         dic_xlists[f'{item}_{value}'] = 1
 
     button = st.button('Prever valor')
-    @st.cache_resource
+
     if button:
         st.write("Isso pode demorar um pouco, por favor aguarde.")
         dic_xlists.update(x_number)
@@ -80,10 +80,12 @@ def run():
         'cancellation_policy_flexible', 'cancellation_policy_moderate',
         'cancellation_policy_strict', 'cancellation_policy_strict_14_with_grace_period'])
 
-        model = jb.load('model.joblib')
-        price = model.predict(values_df)
-
+        price = load_model()
         st.write(f"O valor justo para a diária de sua acomodação é de: R${price[0]}")
-
+@st.cache
+def load_model():
+    model = jb.load('model.joblib')
+    price = model.predict(values_df)
+    return price
 if __name__ == "__main__":
     run()
