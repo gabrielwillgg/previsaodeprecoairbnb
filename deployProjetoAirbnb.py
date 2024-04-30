@@ -3,10 +3,7 @@ import pandas as pd
 import streamlit as st
 import joblib as jb
 
-from streamlit.logger import get_logger
 @st.cache_resource
-LOGGER = get_logger(__name__)
-
 
 
 def run():
