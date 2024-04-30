@@ -1,4 +1,4 @@
-joblib
+joblib==1.4.0
 pandas
 streamlit==1.32.2
-scikit-learn>= 1.2.2
+scikit-learn== 1.2.2
